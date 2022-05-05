@@ -2,12 +2,14 @@ package com.example.data.remote
 
 import com.example.data.remote.interceptors.LoggingInterceptor
 import com.example.data.remote.services.CharacterServiceApi
+import okhttp3.OkHttp
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-class RetrofitClient {
+class RetrofitClient @Inject constructor() {
 
     private val okHttpClient: OkHttpClient = OkHttpClient()
         .newBuilder()
@@ -25,6 +27,6 @@ class RetrofitClient {
 
     fun provideCharacterApiService(): CharacterServiceApi = provideRetrofit
         .create(CharacterServiceApi::class.java)
-
 }
-const val BASE_URL = "https://rickandmortyapi.com/"
+
+const val BASE_URL = "https://rickandmortyapi.com/api/"

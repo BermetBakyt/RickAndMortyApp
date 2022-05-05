@@ -13,5 +13,4 @@ class RickAndMortyApp : Application() {
             Timber.plant(Timber.DebugTree())
         }
     }
-
 }

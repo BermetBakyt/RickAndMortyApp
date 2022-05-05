@@ -25,7 +25,7 @@ class CharactersFragment : BaseFragment<CharactersViewModel, FragmentListBinding
     private fun setupListAdapter() = with(binding.charactersRv) {
         layoutManager = LinearLayoutManager(context)
         adapter = CharactersAdapter { id ->
-            findNavController().navigate(CharactersFragmentDirections.actionListFragmentToDetailFragment(id))
+            findNavController().navigate(CharactersFragmentDirections.actionListFragmentToDetailFragment())
         }
         adapter = adapter
     }
