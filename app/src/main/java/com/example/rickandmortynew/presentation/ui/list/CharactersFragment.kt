@@ -2,15 +2,17 @@ package com.example.rickandmortynew.presentation.ui.list
 
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.rickandmortynew.ListFragmentDirections
 import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.FragmentListBinding
-
 import com.example.rickandmortynew.presentation.base.BaseFragment
 import com.example.rickandmortynew.presentation.ui.extensions.showToastShort
-import kotlinx.android.synthetic.main.list_fragment.*
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CharactersFragment : BaseFragment<CharactersViewModel, FragmentListBinding>(R.layout.fragment_list) {
 
     override val binding by viewBinding(FragmentListBinding::bind)
@@ -21,14 +23,12 @@ class CharactersFragment : BaseFragment<CharactersViewModel, FragmentListBinding
         setupListAdapter()
     }
 
-    private fun setupListAdapter() = with(binding) {
-        with(characters_rv) {
-            layoutManager = LinearLayoutManager(context)
-            adapter = CharacterListAdapter { id ->
-                findNavController().navigate(CharactersListFragmentDirections.destinationDetailsFragment(id))
-            }
-            binding.characters_rv.adapter = adapter
+    private fun setupListAdapter() = with(binding.charactersRv) {
+        layoutManager = LinearLayoutManager(context)
+        adapter = CharactersAdapter { id ->
+            findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailFragment(id))
         }
+        adapter = adapter
     }
 
     override fun setupRequests() {
@@ -52,10 +52,8 @@ class CharactersFragment : BaseFragment<CharactersViewModel, FragmentListBinding
                 showToastShort(it)
             },
             onSuccess = {
-                binding.loaderListCharacters.visibility = View.GONE
                 adapter.submitList(it)
             }
         )
     }
-}
 }
