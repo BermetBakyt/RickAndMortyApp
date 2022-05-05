@@ -16,14 +16,12 @@ class CharacterDto (
     val status: String,
     @SerializedName("species")
     val species: String,
-    @SerializedName("type")
-    val type: String,
     @SerializedName("gender")
     val gender: String,
     @SerializedName("image")
     val image: String,
     @SerializedName("location")
-    val location: List<String>,
+    val location: String,
     @SerializedName("created")
     val created: String,
     )
@@ -34,11 +32,10 @@ fun CharacterDto.toCharacter() : Character {
         name,
         status,
         species,
-        type,
         gender,
+        created,
         image,
-        location,
-        created
+        location
     )
 }
 

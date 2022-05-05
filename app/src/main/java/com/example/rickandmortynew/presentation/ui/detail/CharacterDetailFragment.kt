@@ -4,18 +4,19 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
-import com.example.rickandmortynew.DetailFragmentArgs
 import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.FragmentDetailBinding
 import com.example.rickandmortynew.presentation.base.BaseFragment
 import com.example.rickandmortynew.presentation.ui.extensions.showToastShort
 import com.example.rickandmortynew.presentation.ui.state.UIState
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CharacterDetailFragment : BaseFragment<CharacterDetailViewModel, FragmentDetailBinding>(R.layout.fragment_detail) {
 
     override val binding by viewBinding(FragmentDetailBinding::bind)
     override val viewModel: CharacterDetailViewModel by viewModels()
-    private val args by navArgs<DetailFragmentArgs>()
+    private val args by navArgs<CharacterDetailFragmentArgs>()
 
     override fun setupRequests() {
         viewModel.fetchCharacterDetail(args.id)

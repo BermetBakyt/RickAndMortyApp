@@ -9,7 +9,7 @@ data class CharacterUI(
     val species: String,
     val status: String,
     val gender: String,
-    val location: List<String>,
+    val location: String,
     val created: String,
     val image: String,
 ) : IBaseDiffModel

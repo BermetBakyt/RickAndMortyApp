@@ -5,7 +5,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.example.rickandmortynew.ListFragmentDirections
 import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.FragmentListBinding
 import com.example.rickandmortynew.presentation.base.BaseFragment
@@ -26,7 +25,7 @@ class CharactersFragment : BaseFragment<CharactersViewModel, FragmentListBinding
     private fun setupListAdapter() = with(binding.charactersRv) {
         layoutManager = LinearLayoutManager(context)
         adapter = CharactersAdapter { id ->
-            findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailFragment(id))
+            findNavController().navigate(CharactersFragmentDirections.actionListFragmentToDetailFragment(id))
         }
         adapter = adapter
     }
