@@ -8,6 +8,5 @@ class Character (
         val gender: String,
         val created: String,
         val image: String,
-        val location: String,
 
     )

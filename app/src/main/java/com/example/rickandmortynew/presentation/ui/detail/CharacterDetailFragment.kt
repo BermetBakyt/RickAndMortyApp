@@ -41,8 +41,6 @@ class CharacterDetailFragment : BaseFragment<CharacterDetailViewModel, FragmentD
                     tvSpecies.text = it.data.species
                     tvStatus.text = it.data.status
                     tvGender.text = it.data.gender
-                    tvLocation.text = it.data.location.toString()
-
                     tvDateCreated.text = it.data.created
 
                     Glide.with(binding.root)

@@ -8,6 +8,8 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.FragmentListBinding
 import com.example.rickandmortynew.presentation.base.BaseFragment
+import com.example.rickandmortynew.presentation.ui.extensions.gone
+import com.example.rickandmortynew.presentation.ui.extensions.invisible
 import com.example.rickandmortynew.presentation.ui.extensions.showToastShort
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,18 +18,18 @@ class CharactersFragment : BaseFragment<CharactersViewModel, FragmentListBinding
 
     override val binding by viewBinding(FragmentListBinding::bind)
     override val viewModel: CharactersViewModel by viewModels()
-    private lateinit var adapter: CharactersAdapter
+    private val adapter: CharactersAdapter by lazy {
+        CharactersAdapter { id ->
+            findNavController().navigate(CharactersFragmentDirections.actionListFragmentToDetailFragment())
+        }
+    }
 
     override fun initialize() {
         setupListAdapter()
     }
 
     private fun setupListAdapter() = with(binding.charactersRv) {
-        layoutManager = LinearLayoutManager(context)
-        adapter = CharactersAdapter { id ->
-            findNavController().navigate(CharactersFragmentDirections.actionListFragmentToDetailFragment())
-        }
-        adapter = adapter
+        this.adapter = adapter
     }
 
     override fun setupRequests() {

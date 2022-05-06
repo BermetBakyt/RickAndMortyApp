@@ -9,7 +9,6 @@ data class CharacterUI(
     val species: String,
     val status: String,
     val gender: String,
-    val location: String,
     val created: String,
     val image: String,
 ) : IBaseDiffModel
@@ -20,7 +19,6 @@ fun Character.toUI() = CharacterUI(
     species,
     status,
     gender,
-    location,
     created,
     image
 )

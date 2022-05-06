@@ -20,8 +20,6 @@ class CharacterDto (
     val gender: String,
     @SerializedName("image")
     val image: String,
-    @SerializedName("location")
-    val location: String,
     @SerializedName("created")
     val created: String,
     )
@@ -34,8 +32,7 @@ fun CharacterDto.toCharacter() : Character {
         species,
         gender,
         created,
-        image,
-        location
+        image
     )
 }
 

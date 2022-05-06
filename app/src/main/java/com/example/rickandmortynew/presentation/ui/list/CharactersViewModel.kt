@@ -18,6 +18,7 @@ class CharactersViewModel @Inject constructor(
 
     fun fetchCharacters() {
         fetchCharacterListUseCase().collectRequest(_characterListState) { data ->
-            data.map { it.toUI() } }
+            data.map {
+                it.toUI() } }
     }
 }
