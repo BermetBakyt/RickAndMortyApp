@@ -1,5 +1,6 @@
 package com.example.rickandmortynew.presentation.base
 
+import android.util.Log
 import androidx.recyclerview.widget.DiffUtil
 
 interface IBaseDiffModel {

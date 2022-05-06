@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.FragmentDetailBinding
 import com.example.rickandmortynew.presentation.base.BaseFragment
+import com.example.rickandmortynew.presentation.ui.extensions.invisible
 import com.example.rickandmortynew.presentation.ui.extensions.showToastShort
 import com.example.rickandmortynew.presentation.ui.state.UIState
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,10 +24,10 @@ class CharacterDetailFragment : BaseFragment<CharacterDetailViewModel, FragmentD
     }
 
     override fun setupSubscribers() {
-        subscribeToCharacterDetail()
+        subscribeToCharacterDetailState()
     }
 
-    private fun subscribeToCharacterDetail() = with(binding) {
+    private fun subscribeToCharacterDetailState() = with(binding) {
         viewModel.characterDetailState.collectUIState {
             when (it) {
                 is UIState.Idle -> {
@@ -37,6 +38,7 @@ class CharacterDetailFragment : BaseFragment<CharacterDetailViewModel, FragmentD
                     showToastShort(it.error)
                 }
                 is UIState.Success -> {
+
                     tvName.text = it.data.name
                     tvSpecies.text = it.data.species
                     tvStatus.text = it.data.status

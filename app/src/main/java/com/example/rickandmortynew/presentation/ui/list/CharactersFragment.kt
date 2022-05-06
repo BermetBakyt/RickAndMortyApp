@@ -1,5 +1,6 @@
 package com.example.rickandmortynew.presentation.ui.list
 
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -8,8 +9,6 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.FragmentListBinding
 import com.example.rickandmortynew.presentation.base.BaseFragment
-import com.example.rickandmortynew.presentation.ui.extensions.gone
-import com.example.rickandmortynew.presentation.ui.extensions.invisible
 import com.example.rickandmortynew.presentation.ui.extensions.showToastShort
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,7 +17,7 @@ class CharactersFragment : BaseFragment<CharactersViewModel, FragmentListBinding
 
     override val binding by viewBinding(FragmentListBinding::bind)
     override val viewModel: CharactersViewModel by viewModels()
-    private val adapter: CharactersAdapter by lazy {
+    private val charactersAdapter: CharactersAdapter by lazy {
         CharactersAdapter { id ->
             findNavController().navigate(CharactersFragmentDirections.actionListFragmentToDetailFragment())
         }
@@ -29,7 +28,8 @@ class CharactersFragment : BaseFragment<CharactersViewModel, FragmentListBinding
     }
 
     private fun setupListAdapter() = with(binding.charactersRv) {
-        this.adapter = adapter
+        this.adapter = charactersAdapter
+        layoutManager = LinearLayoutManager(context)
     }
 
     override fun setupRequests() {
@@ -53,7 +53,7 @@ class CharactersFragment : BaseFragment<CharactersViewModel, FragmentListBinding
                 showToastShort(it)
             },
             onSuccess = {
-                adapter.submitList(it)
+                charactersAdapter.submitList(it)
             }
         )
     }
