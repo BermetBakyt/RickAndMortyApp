@@ -19,7 +19,7 @@ class CharactersFragment : BaseFragment<CharactersViewModel, FragmentListBinding
     override val viewModel: CharactersViewModel by viewModels()
     private val charactersAdapter: CharactersAdapter by lazy {
         CharactersAdapter { id ->
-            findNavController().navigate(CharactersFragmentDirections.actionListFragmentToDetailFragment())
+            findNavController().navigate(CharactersFragmentDirections.actionListFragmentToDetailFragment(id))
         }
     }
 

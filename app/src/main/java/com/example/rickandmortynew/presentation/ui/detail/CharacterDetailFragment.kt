@@ -1,5 +1,6 @@
 package com.example.rickandmortynew.presentation.ui.detail
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -20,36 +21,34 @@ class CharacterDetailFragment : BaseFragment<CharacterDetailViewModel, FragmentD
     private val args by navArgs<CharacterDetailFragmentArgs>()
 
     override fun setupRequests() {
+        Log.e("message","$id")
         viewModel.fetchCharacterDetail(args.id)
     }
 
     override fun setupSubscribers() {
-        subscribeToCharacterDetailState()
+        subscribeToCharactersState()
     }
 
-    private fun subscribeToCharacterDetailState() = with(binding) {
-        viewModel.characterDetailState.collectUIState {
-            when (it) {
-                is UIState.Idle -> {
-                }
-                is UIState.Loading -> {
-                }
-                is UIState.Error -> {
-                    showToastShort(it.error)
-                }
-                is UIState.Success -> {
+    private fun subscribeToCharactersState() = with(binding) {
+        viewModel.characterDetailState.collectUIState(
+            allStates = {
+                it.setupViewVisibility(groupCharacterDetail,loaderCharacter)
+            },
+            onError = {
+                showToastShort(it)
+            },
+            onSuccess = {
+                tvName.text = it.name
+                tvSpecies.text = it.species
+                tvStatus.text = it.status
+                tvGender.text = it.gender
+                tvDateCreated.text = it.created
 
-                    tvName.text = it.data.name
-                    tvSpecies.text = it.data.species
-                    tvStatus.text = it.data.status
-                    tvGender.text = it.data.gender
-                    tvDateCreated.text = it.data.created
-
-                    Glide.with(binding.root)
-                        .load(it.data.image)
-                        .into(binding.ivProfilePhoto)
-                }
+                Glide.with(binding.root)
+                    .load(it.image)
+                    .into(binding.ivProfilePhoto)
             }
-        }
+        )
     }
+
 }

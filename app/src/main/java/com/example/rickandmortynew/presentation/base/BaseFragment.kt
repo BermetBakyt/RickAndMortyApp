@@ -91,17 +91,17 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
 
     protected fun <T> UIState<T>.setupViewVisibility(
         group: Group, loader: CircularProgressIndicator, isNavigateWhenSuccess: Boolean = false
-    ){
+    ) {
         fun showLoader(isVisible: Boolean) {
             group.isVisible = !isVisible
             loader.isVisible = isVisible
         }
 
         when (this) {
-            is UIState.Idle ->{}
+            is UIState.Idle -> {}
             is UIState.Loading -> showLoader(true)
             is UIState.Error -> showLoader(false)
-            is UIState.Success ->if (isNavigateWhenSuccess) showLoader(false)
+            is UIState.Success -> if (!isNavigateWhenSuccess) showLoader(false)
         }
     }
 }
