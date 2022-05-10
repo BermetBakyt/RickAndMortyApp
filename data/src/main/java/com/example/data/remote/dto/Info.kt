@@ -2,7 +2,7 @@ package com.example.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 
-class Info (
+class Info(
     @SerializedName("count")
     val count: Int,
     @SerializedName("pages")
@@ -11,4 +11,4 @@ class Info (
     val next: String?,
     @SerializedName("prev")
     val prev: String?
-        )
+)

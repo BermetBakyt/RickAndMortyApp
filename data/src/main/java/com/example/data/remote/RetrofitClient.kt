@@ -1,8 +1,8 @@
 package com.example.data.remote
 
+import com.example.data.BuildConfig
 import com.example.data.remote.interceptors.LoggingInterceptor
 import com.example.data.remote.services.CharacterServiceApi
-import okhttp3.OkHttp
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -20,7 +20,7 @@ class RetrofitClient @Inject constructor() {
         .build()
 
     private val provideRetrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
+        .baseUrl(BuildConfig.BASE_URL)
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
@@ -29,4 +29,3 @@ class RetrofitClient @Inject constructor() {
         .create(CharacterServiceApi::class.java)
 }
 
-const val BASE_URL = "https://rickandmortyapi.com/api/"

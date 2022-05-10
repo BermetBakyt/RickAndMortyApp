@@ -1,11 +1,10 @@
 package com.example.rickandmortynew.presentation.base
 
-import android.util.Log
 import androidx.recyclerview.widget.DiffUtil
 
 interface IBaseDiffModel {
     val id: Int
-    override fun equals(other: Any?) : Boolean
+    override fun equals(other: Any?): Boolean
 }
 
 class BaseDiffUtilCallback<T : IBaseDiffModel> : DiffUtil.ItemCallback<T>() {

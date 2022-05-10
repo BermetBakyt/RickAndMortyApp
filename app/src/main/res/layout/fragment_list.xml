@@ -40,11 +40,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group_character"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:constraint_referenced_ids="text_character, characters_rv"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

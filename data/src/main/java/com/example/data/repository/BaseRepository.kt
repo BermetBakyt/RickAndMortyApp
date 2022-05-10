@@ -17,9 +17,6 @@ abstract class BaseRepository {
             emit(Either.Right(value = data))
         }
     }.flowOn(Dispatchers.IO).catch { exception ->
-//        if (BuildConfig.DEBUG) {
-//            Log.e("RepositoryError", this@BaseRepository.javaClass.name, exception)
-//        }
         emit(Either.Left(value = exception.localizedMessage ?: "Error Occurred!"))
     }
 }

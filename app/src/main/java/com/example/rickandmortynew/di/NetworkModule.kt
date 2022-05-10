@@ -1,6 +1,5 @@
 package com.example.rickandmortynew.di
 
-import androidx.lifecycle.MutableLiveData
 import com.example.data.remote.RetrofitClient
 import dagger.Module
 import dagger.Provides
@@ -11,7 +10,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-
     @Singleton
     @Provides
     fun provideCharacterApiService(

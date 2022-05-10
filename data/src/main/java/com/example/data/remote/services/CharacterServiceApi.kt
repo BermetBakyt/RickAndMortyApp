@@ -10,5 +10,5 @@ interface CharacterServiceApi {
     suspend fun fetchCharacter(@Path("id") id: Int): CharacterDto
 
     @GET("character")
-    suspend fun fetchAllCharacters() : RickAndMortyResponse<CharacterDto>
+    suspend fun fetchAllCharacters(): RickAndMortyResponse<CharacterDto>
 }

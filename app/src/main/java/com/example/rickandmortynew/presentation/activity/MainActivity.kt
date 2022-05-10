@@ -25,21 +25,9 @@ class MainActivity : AppCompatActivity() {
     private fun setupNavigation() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(androidx.navigation.fragment.R.id.nav_host_fragment_container) as NavHostFragment
-            navController = navHostFragment.navController
-            updateUIComponents()
+        navController = navHostFragment.navController
     }
 
-    private fun updateUIComponents() {
-        navController.addOnDestinationChangedListener { controller, destination, arguments ->
-            when (destination.id) {
-                R.id.listFragment,
-                R.id.detailFragment,
-                -> {
-
-                }
-            }
-        }
-    }
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.listFragment)
         return navController.navigateUp() || super.onSupportNavigateUp()

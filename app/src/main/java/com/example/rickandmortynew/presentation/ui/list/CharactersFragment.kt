@@ -1,7 +1,5 @@
 package com.example.rickandmortynew.presentation.ui.list
 
-import android.util.Log
-import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager

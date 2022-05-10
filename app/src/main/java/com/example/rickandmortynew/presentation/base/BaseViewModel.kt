@@ -19,7 +19,7 @@ open class BaseViewModel : ViewModel() {
 
     protected fun <T, S> Flow<Either<String, T>>.collectRequest(
         state: MutableStateFlow<UIState<S>>,
-        mappedData:  (T) -> S
+        mappedData: (T) -> S
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             state.value = UIState.Loading()

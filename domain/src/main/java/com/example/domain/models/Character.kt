@@ -1,6 +1,6 @@
 package com.example.domain.models
 
-class Character (
+class Character(
         val id: Int,
         val name: String,
         val status: String,
@@ -8,5 +8,4 @@ class Character (
         val gender: String,
         val created: String,
         val image: String,
-
-    )
+)

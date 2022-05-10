@@ -8,20 +8,21 @@ import com.bumptech.glide.Glide
 import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.FragmentDetailBinding
 import com.example.rickandmortynew.presentation.base.BaseFragment
-import com.example.rickandmortynew.presentation.ui.extensions.invisible
 import com.example.rickandmortynew.presentation.ui.extensions.showToastShort
-import com.example.rickandmortynew.presentation.ui.state.UIState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CharacterDetailFragment : BaseFragment<CharacterDetailViewModel, FragmentDetailBinding>(R.layout.fragment_detail) {
+class CharacterDetailFragment(
+) : BaseFragment<CharacterDetailViewModel, FragmentDetailBinding>(
+    R.layout.fragment_detail
+) {
 
     override val binding by viewBinding(FragmentDetailBinding::bind)
     override val viewModel: CharacterDetailViewModel by viewModels()
-    private val args by navArgs<CharacterDetailFragmentArgs>()
+    private val args: CharacterDetailFragmentArgs by navArgs()
 
     override fun setupRequests() {
-        Log.e("message","$id")
+        Log.e("message", "$id")
         viewModel.fetchCharacterDetail(args.id)
     }
 
@@ -32,7 +33,7 @@ class CharacterDetailFragment : BaseFragment<CharacterDetailViewModel, FragmentD
     private fun subscribeToCharactersState() = with(binding) {
         viewModel.characterDetailState.collectUIState(
             allStates = {
-                it.setupViewVisibility(groupCharacterDetail,loaderCharacter)
+                it.setupViewVisibility(groupCharacterDetail, loaderCharacter)
             },
             onError = {
                 showToastShort(it)
@@ -43,12 +44,10 @@ class CharacterDetailFragment : BaseFragment<CharacterDetailViewModel, FragmentD
                 tvStatus.text = it.status
                 tvGender.text = it.gender
                 tvDateCreated.text = it.created
-
                 Glide.with(binding.root)
                     .load(it.image)
                     .into(binding.ivProfilePhoto)
             }
         )
     }
-
 }

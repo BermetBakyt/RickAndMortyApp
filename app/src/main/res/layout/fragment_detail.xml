@@ -25,6 +25,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+
         app:layout_constraintBottom_toTopOf="@id/tv_name"/>
 
     <TextView
@@ -37,8 +39,10 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintTop_toBottomOf="@id/iv_profile_photo"
-        app:layout_constraintBottom_toTopOf="@id/tv_species"/>
+        app:layout_constraintBottom_toTopOf="@id/tv_species"
+        />
 
 
     <TextView
@@ -46,6 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        app:layout_constraintVertical_chainStyle="packed"
         android:layout_marginEnd="60dp"
         tools:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +68,7 @@
         tools:text="TextView"
         android:layout_gravity="center_vertical"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_species"
         app:layout_constraintBottom_toTopOf="@id/tv_gender"/>
@@ -74,6 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="60dp"
+        app:layout_constraintVertical_chainStyle="packed"
         tools:text="TextView"
         android:layout_gravity="center_vertical"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,26 +95,15 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="60dp"
         tools:text="TextView"
+        app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_gender"
-        app:layout_constraintBottom_toTopOf="@id/tv_location"/>
-
-    <TextView
-        android:id="@+id/tv_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="60dp"
-        tools:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_date_created"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group_character_detail"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:constraint_referenced_ids="tv_location, tv_date_created, tv_gender, tv_status, tv_species, tv_name"/>
+        app:constraint_referenced_ids="tv_date_created, tv_gender, tv_status, tv_species, tv_name"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
