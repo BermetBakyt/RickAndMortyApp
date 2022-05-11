@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/BaseItemMaterialCardView"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image_item_character"
+            android:layout_width="150dp"
+            android:layout_height="160dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_launcher_background" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_item_character_content_and_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="150dp" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/hello_blank_fragment"
+            android:textSize="18sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toRightOf="@id/guideline_item_character_content_and_image"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/image_item_character_status"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintLeft_toRightOf="@id/guideline_item_character_content_and_image"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"/>
+
+        <TextView
+            android:id="@+id/text_item_character_status_and_species"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/image_item_character_status"
+            app:layout_constraintLeft_toRightOf="@id/image_item_character_status"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/image_item_character_status"/>
+
+        <TextView
+            android:id="@+id/text_item_character_last_known_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/Last_known_location_COLON"
+            app:layout_constraintLeft_toRightOf="@id/guideline_item_character_content_and_image"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_item_character_status_and_species"/>
+
+        <com.example.rickandmortynew.presentation.ui.customviews.ClickableTextView
+            android:id="@+id/text_item_character_last_known_location_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/TextItemCharacterDescription"
+            app:layout_constraintLeft_toRightOf="@id/guideline_item_character_content_and_image"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_item_character_last_known_location" />
+
+        <TextView
+            android:id="@+id/text_item_character_first_seen_in"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/First_seen_in_COLON"
+            app:layout_constraintBottom_toTopOf="@id/text_item_character_first_seen_in_data"
+            app:layout_constraintLeft_toRightOf="@id/guideline_item_character_content_and_image"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_item_character_last_known_location_data"
+            app:layout_goneMarginBottom="30dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar_character_first_seen_in"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:indeterminateTint="@color/White"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/guideline_item_character_content_and_image"
+            app:layout_constraintTop_toBottomOf="@id/text_item_character_first_seen_in" />
+
+        <com.example.rickandmortynew.presentation.ui.customviews.ClickableTextView
+            android:id="@+id/text_item_character_first_seen_in_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/guideline_item_character_content_and_image"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_item_character_first_seen_in"/>
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

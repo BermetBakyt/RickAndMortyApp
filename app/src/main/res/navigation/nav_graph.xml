@@ -8,22 +8,37 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.rickandmortynew.presentation.ui.list.CharactersFragment"
+        android:name="com.example.rickandmortynew.presentation.ui.fragments.characterpaging.CharacterPagingFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" >
+        tools:layout="@layout/fragment_character_paging" >
         <action
             android:id="@+id/action_listFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_characterImageDialog"
+            app:destination="@id/characterImageDialog" />
     </fragment>
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.rickandmortynew.presentation.ui.detail.CharacterDetailFragment"
+        android:name="com.example.rickandmortynew.presentation.ui.fragments.detail.CharacterDetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
 
         <argument
             android:name="id"
             app:argType="integer" />
+        <argument
+            android:name="label"
+            app:argType="string" />
     </fragment>
+    <dialog
+        android:id="@+id/characterImageDialog"
+        android:name="com.example.rickandmortynew.presentation.ui.dialogs.character.image.CharacterImageDialog"
+        android:label="dialog_character_image"
+        tools:layout="@layout/dialog_character_image" >
+        <argument
+            android:name="image"
+            app:argType="string" />
+    </dialog>
 </navigation>

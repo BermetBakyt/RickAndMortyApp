@@ -1,4 +1,4 @@
-package com.example.rickandmortynew.presentation.ui.detail
+package com.example.rickandmortynew.presentation.ui.fragments.detail
 
 import android.util.Log
 import androidx.fragment.app.viewModels

@@ -1,24 +1,22 @@
 package com.example.rickandmortynew.presentation.ui.models
 
-import com.example.domain.models.Character
+import com.example.domain.models.character.Origin
+import com.example.domain.models.character.SimpleLocation
 import com.example.rickandmortynew.presentation.base.IBaseDiffModel
 
 data class CharacterUI(
     override val id: Int,
     val name: String,
-    val species: String,
     val status: String,
+    val species: String,
+    val type: String,
     val gender: String,
-    val created: String,
+    val origin: OriginUI,
+    val location: SimpleLocation,
     val image: String,
-) : IBaseDiffModel
+    val episode: MutableList<String>,
+    val url: String,
+    val created: String,
 
-fun Character.toUI() = CharacterUI(
-    id,
-    name,
-    species,
-    status,
-    gender,
-    created,
-    image
-)
+    var firstSeenIn: String = ""
+) : IBaseDiffModel

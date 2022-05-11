@@ -2,7 +2,7 @@ package com.example.data.remote
 
 import com.example.data.BuildConfig
 import com.example.data.remote.interceptors.LoggingInterceptor
-import com.example.data.remote.services.CharacterServiceApi
+import com.example.data.remote.services.CharacterApiService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -25,7 +25,7 @@ class RetrofitClient @Inject constructor() {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    fun provideCharacterApiService(): CharacterServiceApi = provideRetrofit
-        .create(CharacterServiceApi::class.java)
+    fun provideCharacterApiService(): CharacterApiService = provideRetrofit
+        .create(CharacterApiService::class.java)
 }
 
