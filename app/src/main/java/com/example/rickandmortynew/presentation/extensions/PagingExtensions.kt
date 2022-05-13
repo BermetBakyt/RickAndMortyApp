@@ -1,4 +1,4 @@
-package com.example.rickandmortynew.presentation.ui.extensions
+package com.example.rickandmortynew.presentation.extensions
 
 import android.widget.ProgressBar
 import androidx.core.view.isVisible

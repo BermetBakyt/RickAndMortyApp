@@ -5,5 +5,6 @@ import com.example.domain.models.episode.Episode
 import kotlinx.coroutines.flow.Flow
 
 interface EpisodeRepository {
+
     fun fetchEpisode(id: Int): Flow<Either<String, Episode>>
 }

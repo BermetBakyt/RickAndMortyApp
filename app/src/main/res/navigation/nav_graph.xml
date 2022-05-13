@@ -8,22 +8,28 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.rickandmortynew.presentation.ui.fragments.characterpaging.CharacterPagingFragment"
+        android:name="com.example.rickandmortynew.presentation.ui.fragments.character.character_paging.CharacterPagingFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_character_paging" >
         <action
             android:id="@+id/action_listFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/fragment_character_detail" />
         <action
             android:id="@+id/action_listFragment_to_characterImageDialog"
             app:destination="@id/characterImageDialog" />
+        <action
+            android:id="@+id/action_listFragment_to_episodeDetailFragment"
+            app:destination="@id/episodeDetailFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_locationDetailFragment"
+            app:destination="@id/locationDetailFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/detailFragment"
-        android:name="com.example.rickandmortynew.presentation.ui.fragments.detail.CharacterDetailFragment"
+        android:id="@+id/fragment_character_detail"
+        android:name="com.example.rickandmortynew.presentation.ui.fragments.character.characterDetail.CharacterDetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" >
+        tools:layout="@layout/fragment_character_detail" >
 
         <argument
             android:name="id"
@@ -41,4 +47,23 @@
             android:name="image"
             app:argType="string" />
     </dialog>
+    <fragment
+        android:id="@+id/episodeDetailFragment"
+        android:name="com.example.rickandmortynew.presentation.ui.fragments.episodes.detail.EpisodeDetailFragment"
+        android:label="EpisodeDetailFragment" >
+        <argument android:name="id"
+            app:argType="integer" />
+        <argument android:name="label"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/locationDetailFragment"
+        android:name="com.example.rickandmortynew.presentation.ui.fragments.location.detail.LocationDetailFragment"
+        android:label="LocationDetailFragment" >
+        <argument android:name="id"
+            app:argType="integer" />
+        <argument android:name="label"
+            app:argType="string" />
+    </fragment>
 </navigation>

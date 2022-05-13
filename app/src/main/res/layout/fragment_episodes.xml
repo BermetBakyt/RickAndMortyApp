@@ -4,19 +4,19 @@
     style="@style/BaseRootStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.fragments.character.character_paging.CharacterPagingFragment">
+    tools:context=".presentation.ui.fragments.episodes.EpisodesFragment">
 
     <ProgressBar
-        android:id="@+id/progress_characters_loader"
+        android:id="@+id/progress_episodes_loader"
         style="@style/BaseProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_characters"
+        android:id="@+id/recycler_episodes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_character" />
+        tools:listitem="@layout/item_episode" />
 
 </FrameLayout>

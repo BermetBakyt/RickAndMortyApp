@@ -11,7 +11,7 @@ import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.ItemCharacterBinding
 import com.example.rickandmortynew.presentation.base.BaseDiffUtilCallback
 import com.example.rickandmortynew.presentation.ui.enums.CharacterStatus
-import com.example.rickandmortynew.presentation.ui.models.CharacterUI
+import com.example.rickandmortynew.presentation.models.CharacterUI
 
 class CharacterPagingAdapter(
     val onItemClick: (name: String, id: Int) -> Unit,

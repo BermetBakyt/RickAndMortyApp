@@ -96,5 +96,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
             is UIState.Success -> if (!isNavigateWhenSuccess) showLoader(false)
         }
     }
+
+    abstract fun setupObservers()
 }
 

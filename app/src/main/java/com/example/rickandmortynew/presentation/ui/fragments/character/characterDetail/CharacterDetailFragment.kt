@@ -1,23 +1,24 @@
-package com.example.rickandmortynew.presentation.ui.fragments.detail
+package com.example.rickandmortynew.presentation.ui.fragments.character.characterDetail
 
 import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.bumptech.glide.Glide
+import coil.load
 import com.example.rickandmortynew.R
-import com.example.rickandmortynew.databinding.FragmentDetailBinding
+import com.example.rickandmortynew.databinding.FragmentCharacterDetailBinding
 import com.example.rickandmortynew.presentation.base.BaseFragment
-import com.example.rickandmortynew.presentation.ui.extensions.showToastShort
+import com.example.rickandmortynew.presentation.extensions.showToastShort
+import com.example.rickandmortynew.presentation.ui.fragments.detail.CharacterDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CharacterDetailFragment(
-) : BaseFragment<CharacterDetailViewModel, FragmentDetailBinding>(
-    R.layout.fragment_detail
+) : BaseFragment<CharacterDetailViewModel, FragmentCharacterDetailBinding>(
+    R.layout.fragment_character_detail
 ) {
 
-    override val binding by viewBinding(FragmentDetailBinding::bind)
+    override val binding by viewBinding(FragmentCharacterDetailBinding::bind)
     override val viewModel: CharacterDetailViewModel by viewModels()
     private val args: CharacterDetailFragmentArgs by navArgs()
 
@@ -44,9 +45,7 @@ class CharacterDetailFragment(
                 tvStatus.text = it.status
                 tvGender.text = it.gender
                 tvDateCreated.text = it.created
-                Glide.with(binding.root)
-                    .load(it.image)
-                    .into(binding.ivProfilePhoto)
+                ivProfilePhoto.load(it.image)
             }
         )
     }

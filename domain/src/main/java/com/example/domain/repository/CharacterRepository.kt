@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface CharacterRepository {
 
-    fun fetchCharacter(id: Int) : Flow<Either<String, Character>>
+    fun fetchCharacter(id: Int): Flow<Either<String, Character>>
 }
