@@ -23,7 +23,6 @@ class CharacterDetailFragment(
     private val args: CharacterDetailFragmentArgs by navArgs()
 
     override fun setupRequests() {
-        Log.e("message", "$id")
         viewModel.fetchCharacterDetail(args.id)
     }
 
@@ -33,7 +32,7 @@ class CharacterDetailFragment(
 
     private fun subscribeToCharactersState() = with(binding) {
         viewModel.characterDetailState.collectUIState(
-            allStates = {
+            state = {
                 it.setupViewVisibility(groupCharacterDetail, loaderCharacter)
             },
             onError = {

@@ -5,6 +5,6 @@ import javax.inject.Inject
 
 class FetchCharacterByIdUseCase @Inject constructor(
     private val characterRepository: CharacterRepository
-    ) {
+) {
     operator fun invoke(id: Int) = characterRepository.fetchCharacter(id)
 }

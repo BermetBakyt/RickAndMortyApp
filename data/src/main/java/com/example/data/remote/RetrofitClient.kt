@@ -3,6 +3,8 @@ package com.example.data.remote
 import com.example.data.BuildConfig
 import com.example.data.remote.interceptors.LoggingInterceptor
 import com.example.data.remote.services.CharacterApiService
+import com.example.data.remote.services.EpisodeApiService
+import com.example.data.remote.services.LocationApiService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -27,5 +29,11 @@ class RetrofitClient @Inject constructor() {
 
     fun provideCharacterApiService(): CharacterApiService = provideRetrofit
         .create(CharacterApiService::class.java)
+
+    fun provideLocationApiService(): LocationApiService = provideRetrofit
+        .create(LocationApiService::class.java)
+
+    fun provideEpisodeApiService(): EpisodeApiService = provideRetrofit
+        .create(EpisodeApiService::class.java)
 }
 

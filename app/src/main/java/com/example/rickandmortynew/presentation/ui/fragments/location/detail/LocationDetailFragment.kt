@@ -22,13 +22,13 @@ class LocationDetailFragment() : BaseFragment<LocationDetailViewModel, FragmentL
         viewModel.fetchLocationDetail(args.id)
     }
 
-    override fun setupObservers() {
+    override fun setupSubscribers() {
         subscribeToEpisodesState()
     }
 
     private fun subscribeToEpisodesState() = with(binding) {
         viewModel.episodeDetailState.collectUIState(
-            allStates = {
+            state = {
                 it.setupViewVisibility(groupLocationDetail, loaderLocation)
             },
             onError = {

@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.rickandmortynew.presentation.ui.fragments.character.character_paging.CharacterPagingFragment"
+        android:name="com.example.rickandmortynew.presentation.ui.fragments.character.CharacterPagingFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_character_paging" >
         <action
@@ -38,15 +38,16 @@
             android:name="label"
             app:argType="string" />
     </fragment>
+
     <dialog
         android:id="@+id/characterImageDialog"
         android:name="com.example.rickandmortynew.presentation.ui.dialogs.character.image.CharacterImageDialog"
-        android:label="dialog_character_image"
-        tools:layout="@layout/dialog_character_image" >
+        tools:layout="@layout/dialog_character_image">
         <argument
             android:name="image"
             app:argType="string" />
     </dialog>
+
     <fragment
         android:id="@+id/episodeDetailFragment"
         android:name="com.example.rickandmortynew.presentation.ui.fragments.episodes.detail.EpisodeDetailFragment"

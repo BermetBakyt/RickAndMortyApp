@@ -23,13 +23,13 @@ class EpisodeDetailFragment(
         viewModel.fetchEpisodeDetail(args.id)
     }
 
-    override fun setupObservers() {
+    override fun setupSubscribers() {
         subscribeToEpisodesState()
     }
 
     private fun subscribeToEpisodesState() = with(binding) {
         viewModel.episodeDetailState.collectUIState(
-            allStates = {
+            state = {
                 it.setupViewVisibility(groupEpisodeDetail, loaderEpisode)
             },
             onError = {

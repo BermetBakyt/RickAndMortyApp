@@ -4,7 +4,7 @@
     style="@style/BaseRootStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.fragments.character.character_paging.CharacterPagingFragment">
+    tools:context=".presentation.ui.fragments.character.CharacterPagingFragment">
 
     <ProgressBar
         android:id="@+id/progress_characters_loader"
