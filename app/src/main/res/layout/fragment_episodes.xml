@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/BaseRootStyle"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.ui.fragments.episodes.EpisodesFragment">
-
+    android:layout_height="match_parent">
     <ProgressBar
         android:id="@+id/progress_episodes_loader"
         style="@style/BaseProgressBar"

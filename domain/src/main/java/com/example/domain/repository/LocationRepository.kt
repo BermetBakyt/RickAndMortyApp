@@ -7,4 +7,5 @@ import kotlinx.coroutines.flow.Flow
 interface LocationRepository {
 
     fun fetchLocation(id: Int): Flow<Either<String, Location>>
+
 }

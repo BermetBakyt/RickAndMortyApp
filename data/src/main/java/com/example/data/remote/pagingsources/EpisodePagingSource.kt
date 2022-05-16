@@ -14,6 +14,6 @@ class EpisodePagingSource (
 
     private val service: EpisodeApiService
 ) : BasePagingSource<EpisodeDto, Episode>(
-    { service.fetchEpisodePaging(it) },
+    { service.fetchEpisodes(it) },
     { data -> data.map { it.toEpisode() } }
 )

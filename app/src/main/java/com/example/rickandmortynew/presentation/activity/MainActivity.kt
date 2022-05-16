@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.ActivityMainBinding
@@ -15,47 +16,42 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var bottomNavigationItemReselectedListener: OnBottomNavigationItemReselect
+    private lateinit var bottomNavigationItemReselectListener: OnBottomNavigationItemReselect
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupNavigation()
-        setupToolbar()
     }
 
-    private fun setupToolbar() {
-        setSupportActionBar(binding.toolbar)
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_characters,
-                R.id.navigation_episodes,
-                R.id.navigation_locations,
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-    }
     private fun setupNavigation() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
+
+        setupBottomNavigation()
+    }
+
+    private fun setupBottomNavigation() {
         binding.bottomNavigation.apply {
             itemIconTintList = null
             setupWithNavController(navController)
 
             setOnNavigationItemReselectedListener {
                 when (it.itemId) {
-                    R.id.navigation_characters,
+                    R.id.navigation_locations,
                     R.id.navigation_episodes,
-                    R.id.navigation_locations -> {
-                        bottomNavigationItemReselectedListener.onItemReselect()
+                    R.id.navigation_characters -> {
+                        bottomNavigationItemReselectListener.onItemReselect()
                     }
                 }
             }
         }
     }
 
-
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_container)
+        val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
@@ -64,6 +60,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setOnBottomNavigationItemReselectListener(bottomNavigationItemReselectListener: OnBottomNavigationItemReselect) {
-        this.bottomNavigationItemReselectedListener = bottomNavigationItemReselectListener
+        this.bottomNavigationItemReselectListener = bottomNavigationItemReselectListener
     }
 }

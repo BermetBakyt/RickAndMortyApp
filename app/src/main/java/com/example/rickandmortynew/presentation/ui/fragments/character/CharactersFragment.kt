@@ -20,7 +20,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class CharacterPagingFragment :
+class CharactersFragment :
     BaseFragment<CharacterPagingViewModel, FragmentCharacterPagingBinding>(
         R.layout.fragment_character_paging
     ) {
@@ -56,7 +56,7 @@ class CharacterPagingFragment :
 
     private fun onItemClick(name: String, id: Int) {
         findNavController().navigate(
-            CharacterPagingFragmentDirections.actionListFragmentToDetailFragment(
+            CharactersFragmentDirections.actionNavigationCharactersToCharacterDetailFragment(
                 label = "${getString(R.string.fragment_label_detail_character)} $name",
                 id = id
             )
@@ -65,7 +65,7 @@ class CharacterPagingFragment :
 
     private fun onItemLongClick(image: String) {
         findNavController().navigate(
-            CharacterPagingFragmentDirections.actionListFragmentToCharacterImageDialog(
+            CharactersFragmentDirections.actionNavigationCharactersToCharacterImageDialog(
                 image = image
             )
         )
@@ -90,7 +90,7 @@ class CharacterPagingFragment :
 
     private fun onItemLastKnownLocationClick(location: SimpleLocation) {
         findNavController().navigate(
-            CharacterPagingFragmentDirections.actionListFragmentToLocationDetailFragment(
+            CharactersFragmentDirections.actionNavigationCharactersToLocationDetailFragment(
                 id = location.url.getIdFromUrl(),
                 label = "${getString(R.string.fragment_label_detail_location)} ${location.name}"
             )
@@ -99,7 +99,7 @@ class CharacterPagingFragment :
 
     private fun onItemFirstSeenOnClick(name: String, url: String) {
         findNavController().navigate(
-            CharacterPagingFragmentDirections.actionListFragmentToEpisodeDetailFragment(
+            CharactersFragmentDirections.actionNavigationCharactersToEpisodeDetailFragment(
                 label = "${getString(R.string.fragment_label_detail_episode)} $name",
                 id = url.getIdFromUrl()
             )

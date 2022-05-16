@@ -15,7 +15,7 @@ class LocationRepositoryImpl @Inject constructor(
     private val service: LocationApiService
 ) : BaseRepository(), LocationRepository {
 
-    fun fetchLocationsPaging() = doPagingRequest(LocationPagingSource(service))
+    fun fetchLocations() = doPagingRequest(LocationPagingSource(service))
 
     override fun fetchLocation(id: Int) = doRequest {
         service.fetchLocation(id).toLocation()

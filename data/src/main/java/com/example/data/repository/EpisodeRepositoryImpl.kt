@@ -18,7 +18,7 @@ class EpisodeRepositoryImpl @Inject constructor(
     private val service: EpisodeApiService
 ) : BaseRepository(), EpisodeRepository {
 
-    fun fetchEpisodesPaging() = doPagingRequest(EpisodePagingSource(service))
+    fun fetchEpisodes() = doPagingRequest(EpisodePagingSource(service))
 
     override fun fetchEpisode(id: Int) = doRequest {
         service.fetchEpisode(id).toEpisode()

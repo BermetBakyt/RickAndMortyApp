@@ -9,5 +9,4 @@
         android:title="@string/item_filter"
         app:showAsAction="ifRoom" />
 
-
 </menu>

@@ -3,6 +3,7 @@
     <!--region Base-->
     <style name="BaseRootStyle">
         <item name="android:background">@color/VeryVeryDarkMostlyBlackBlue</item>
+        <item name="windowActionBar">false</item>
     </style>
 
     <style name="BaseProgressBar">

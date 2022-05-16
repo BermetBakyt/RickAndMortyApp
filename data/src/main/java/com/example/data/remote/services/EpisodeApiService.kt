@@ -1,7 +1,6 @@
 package com.example.data.remote.services
 
 import com.example.data.remote.dto.CharacterPagingResponse
-import com.example.data.remote.dto.character.CharacterDto
 import com.example.data.remote.dto.episode.EpisodeDto
 import retrofit2.Response
 import retrofit2.http.GET
@@ -16,7 +15,7 @@ interface EpisodeApiService {
     ) : EpisodeDto
 
     @GET("episode")
-    suspend fun fetchEpisodePaging(
+    suspend fun fetchEpisodes(
         @Query("page") page: Int
     ): Response<CharacterPagingResponse<EpisodeDto>>
 }
