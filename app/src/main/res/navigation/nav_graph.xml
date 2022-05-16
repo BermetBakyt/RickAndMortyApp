@@ -92,4 +92,10 @@
             app:argType="integer" />
     </fragment>
 
+    <dialog
+        android:id="@+id/navigation_filter"
+        android:name="com.example.rickandmortynew.presentation.ui.dialogs.FilterDialog"
+        android:label="dialog_filter"
+        tools:layout="@layout/dialog_filter" />
+
 </navigation>

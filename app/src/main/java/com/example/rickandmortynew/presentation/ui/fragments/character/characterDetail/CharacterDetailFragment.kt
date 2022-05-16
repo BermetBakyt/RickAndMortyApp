@@ -1,6 +1,5 @@
 package com.example.rickandmortynew.presentation.ui.fragments.character.characterDetail
 
-import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -9,7 +8,6 @@ import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.FragmentCharacterDetailBinding
 import com.example.rickandmortynew.presentation.base.BaseFragment
 import com.example.rickandmortynew.presentation.extensions.showToastShort
-import com.example.rickandmortynew.presentation.ui.fragments.detail.CharacterDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.example.rickandmortynew.presentation.ui.fragments.detail
+package com.example.rickandmortynew.presentation.ui.fragments.character.characterDetail
 
 import com.example.domain.use_cases.FetchCharacterByIdUseCase
 import com.example.rickandmortynew.presentation.base.BaseViewModel
