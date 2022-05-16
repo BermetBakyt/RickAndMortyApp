@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BaseItemMaterialCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            style="@style/TextItemLocationTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/Location_name_COLON" />
+
+        <TextView
+            android:id="@+id/text_item_location_name"
+            style="@style/TextItemLocationDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@tools:sample/cities" />
+
+        <TextView
+            style="@style/TextItemLocationTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Location_type_COLON" />
+
+        <TextView
+            android:id="@+id/text_item_location_type"
+            style="@style/TextItemLocationDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@tools:sample/lorem/random" />
+
+        <TextView
+            style="@style/TextItemLocationTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Dimension_in_which_the_location_is_located_COLON" />
+
+        <TextView
+            android:id="@+id/text_item_location_dimension"
+            style="@style/TextItemLocationDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            tools:text="@tools:sample/cities" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

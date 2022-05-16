@@ -9,12 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.paging.PagingData
 import com.example.rickandmortynew.presentation.ui.state.UIState
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import androidx.viewbinding.ViewBinding
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
 
 abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     @LayoutRes layoutId: Int
@@ -44,6 +47,9 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected open fun setupSubscribers() {
     }
 
+    /**
+     * Collect flow safely with [repeatOnLifecycle] API
+     */
     private fun collectFlowSafely(
         lifecycleState: Lifecycle.State,
         collect: suspend () -> Unit
@@ -55,22 +61,21 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         }
     }
 
+    /**
+     * Collect [UIState] with [collectFlowSafely] and optional states params
+     * @param state for working with all states
+     * @param onError for error handling
+     * @param onSuccess for working with data
+     */
     protected fun <T> StateFlow<UIState<T>>.collectUIState(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
-        collector: FlowCollector<UIState<T>>
-    ) {
-        collectFlowSafely(lifecycleState) { this.collect(collector) }
-    }
-
-    protected fun <T> StateFlow<UIState<T>>.collectUIState(
-        lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
-        allStates: ((UIState<T>) -> Unit)? = null,
+        state: ((UIState<T>) -> Unit)? = null,
         onError: ((error: String) -> Unit),
         onSuccess: ((data: T) -> Unit)
     ) {
         collectFlowSafely(lifecycleState) {
             this.collect {
-                allStates?.invoke(it)
+                state?.invoke(it)
                 when (it) {
                     is UIState.Idle -> {}
                     is UIState.Loading -> {}
@@ -81,6 +86,21 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         }
     }
 
+    /**
+     * Collect [PagingData] with [collectFlowSafely]
+     */
+    protected fun <T : Any> Flow<PagingData<T>>.collectPaging(
+        lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
+        action: suspend (value: PagingData<T>) -> Unit
+    ) {
+        collectFlowSafely(lifecycleState) { this.collectLatest { action(it) } }
+    }
+
+    /**
+     * Setup views visibility depending on [UIState] states.
+     * @param isNavigateWhenSuccess is responsible for displaying views depending on whether
+     * to navigate further or stay this Fragment
+     */
     protected fun <T> UIState<T>.setupViewVisibility(
         group: Group, loader: CircularProgressIndicator, isNavigateWhenSuccess: Boolean = false
     ) {
@@ -97,4 +117,3 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
         }
     }
 }
-

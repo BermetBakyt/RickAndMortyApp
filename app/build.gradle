@@ -2,6 +2,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.android.application'
+    id 'com.google.dagger.hilt.android'
     id 'androidx.navigation.safeargs.kotlin'
 }
 android {
@@ -43,14 +44,13 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     //adding modules data and domain
-    implementation project (path: ':domain')
-    implementation project (path: ':data')
+    implementation project(path: ':domain')
+    implementation project(path: ':data')
 
     //Lifecycle
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
@@ -68,20 +68,19 @@ dependencies {
 
     //Hilt
     implementation 'com.google.dagger:hilt-android:2.41'
-    kapt 'com.google.dagger:hilt-android-compiler:2.37'
-    kapt 'androidx.hilt:hilt-compiler:1.0.0'
+    kapt 'com.google.dagger:hilt-android-compiler:2.41'
+
 
     //Navigation
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
+    implementation "androidx.navigation:navigation-fragment-ktx:2.4.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.4.2"
 
-    //Glide
-    implementation 'com.github.bumptech.glide:glide:4.13.0'
-    kapt 'com.github.bumptech.glide:compiler:4.13.0'
-
-    //Timber
-    implementation 'com.jakewharton.timber:timber:5.0.1'
+    // Coil
+    implementation "io.coil-kt:coil:1.3.2"
 
     //viewBinding
     implementation 'com.github.kirich1409:viewbindingpropertydelegate:1.5.3'
+
+    //Timber
+    implementation 'com.jakewharton.timber:timber:5.0.1'
 }

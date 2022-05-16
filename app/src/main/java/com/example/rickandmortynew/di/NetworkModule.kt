@@ -12,7 +12,23 @@ import javax.inject.Singleton
 object NetworkModule {
     @Singleton
     @Provides
+    fun provideRetrofitClient() = RetrofitClient()
+
+    @Singleton
+    @Provides
     fun provideCharacterApiService(
-        networkClient: RetrofitClient
-    ) = networkClient.provideCharacterApiService()
+        retrofitClient: RetrofitClient
+    ) = retrofitClient.provideCharacterApiService()
+
+    @Singleton
+    @Provides
+    fun provideLocationApiService(
+        retrofitClient: RetrofitClient
+    ) = retrofitClient.provideLocationApiService()
+
+    @Singleton
+    @Provides
+    fun provideEpisodeApiService(
+        retrofitClient: RetrofitClient
+    ) = retrofitClient.provideEpisodeApiService()
 }
