@@ -14,8 +14,6 @@ import javax.inject.Inject
 @HiltViewModel
 class CharacterPagingViewModel @Inject constructor(
     private val characterRepository: CharacterRepositoryImpl,
-    private val episodeRepository: EpisodeRepositoryImpl,
-    private val locationRepository: LocationRepositoryImpl,
     private val fetchEpisodeByIdUseCase: FetchEpisodeByIdUseCase
 ) : BaseViewModel() {
 
@@ -24,9 +22,4 @@ class CharacterPagingViewModel @Inject constructor(
 
     fun fetchEpisode(id: Int) = fetchEpisodeByIdUseCase(id)
 
-    fun fetchEpisodePaging(id: Int) =
-        episodeRepository.fetchEpisodesPaging().collectPagingRequest { it.toEpisodeUI() }
-
-    fun fetchLocationPaging() =
-        locationRepository.fetchLocationsPaging().collectPagingRequest { it.toLocationUI() }
 }

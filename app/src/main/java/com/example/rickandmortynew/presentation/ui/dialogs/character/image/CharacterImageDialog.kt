@@ -7,7 +7,6 @@ import android.os.Bundle
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
-import com.alis.rickandmorty.presentation.ui.dialogs.characters.image.CharacterImageDialogArgs
 import com.example.rickandmortynew.databinding.DialogCharacterImageBinding
 import com.example.rickandmortynew.presentation.base.BaseDialog
 

@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface EpisodeApiService {
 
-    @GET("/api/episode/{id}")
+    @GET("episode/{id}")
     suspend fun fetchEpisode(
         @Path("id") id: Int
     ) : EpisodeDto

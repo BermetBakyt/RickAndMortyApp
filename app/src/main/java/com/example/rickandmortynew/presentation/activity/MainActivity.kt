@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupNavigation()
+        setupToolbar()
     }
 
     private fun setupNavigation() {
@@ -31,6 +32,19 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         setupBottomNavigation()
+        setupToolbar()
+    }
+
+    private fun setupToolbar() {
+        setSupportActionBar(binding.toolbar)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_locations,
+                R.id.navigation_episodes,
+                R.id.navigation_characters,
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
     private fun setupBottomNavigation() {

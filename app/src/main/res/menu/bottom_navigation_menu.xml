@@ -14,8 +14,4 @@
         android:id="@+id/navigation_episodes"
         android:title="@string/item_episodes" />
 
-    <item
-        android:id="@+id/navigation_search"
-        android:title="@string/item_search" />
-
 </menu>

@@ -10,12 +10,12 @@ import retrofit2.http.Query
 
 interface LocationApiService {
 
-    @GET("/api/location")
+    @GET("location")
     suspend fun fetchLocations(
         @Query("page") page: Int
     ): Response<CharacterPagingResponse<LocationDto>>
 
-    @GET("api/location/{id}")
+    @GET("location/{id}")
     suspend fun fetchLocation(
         @Path("id") id: Int
     ): LocationDto

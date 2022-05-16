@@ -12,7 +12,6 @@ import com.example.rickandmortynew.presentation.adapters.LocationAdapter
 import com.example.rickandmortynew.presentation.adapters.paging.LoadStateAdapter
 import com.example.rickandmortynew.presentation.base.BaseFragment
 import com.example.rickandmortynew.presentation.extensions.bindUIToLoadState
-import com.example.rickandmortynew.presentation.ui.fragments.location.detail.LocationsFragmentDirections
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
