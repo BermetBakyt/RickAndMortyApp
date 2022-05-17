@@ -2,7 +2,6 @@ package com.example.rickandmortynew.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -10,7 +9,6 @@ import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.ItemCharacterBinding
 import com.example.rickandmortynew.presentation.base.BaseDiffUtilCallback
 import com.example.rickandmortynew.presentation.models.CharacterUI
-import com.example.rickandmortynew.presentation.models.SimpleLocationUI
 import com.example.rickandmortynew.presentation.ui.enums.CharacterStatus
 
 class CharacterPagingAdapter(

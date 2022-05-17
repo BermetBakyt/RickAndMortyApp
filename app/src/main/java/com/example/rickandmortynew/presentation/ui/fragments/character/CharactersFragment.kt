@@ -1,6 +1,5 @@
 package com.example.rickandmortynew.presentation.ui.fragments.character
 
-import android.net.Uri
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -13,9 +12,6 @@ import com.example.rickandmortynew.presentation.activity.MainActivity
 import com.example.rickandmortynew.presentation.adapters.CharacterPagingAdapter
 import com.example.rickandmortynew.presentation.adapters.paging.LoadStateAdapter
 import com.example.rickandmortynew.presentation.base.BaseFragment
-import com.example.rickandmortynew.presentation.extensions.bindUIToLoadState
-import com.example.rickandmortynew.presentation.extensions.showToastShort
-import com.example.rickandmortynew.presentation.models.EpisodeUI
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

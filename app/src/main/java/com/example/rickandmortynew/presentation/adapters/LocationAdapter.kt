@@ -1,11 +1,9 @@
 package com.example.rickandmortynew.presentation.adapters
 
-import android.location.Location
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.rickandmortynew.databinding.FragmentLocationsBinding
 import com.example.rickandmortynew.databinding.ItemLocationBinding
 import com.example.rickandmortynew.presentation.base.BaseDiffUtilCallback
 import com.example.rickandmortynew.presentation.models.LocationUI
