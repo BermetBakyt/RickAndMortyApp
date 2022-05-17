@@ -1,8 +1,6 @@
 package com.example.rickandmortynew.presentation.models
 
 import com.example.domain.models.character.Character
-import com.example.domain.models.character.Origin
-import com.example.domain.models.character.SimpleLocation
 import com.example.rickandmortynew.presentation.base.IBaseDiffModel
 
 data class CharacterUI(
@@ -13,7 +11,7 @@ data class CharacterUI(
     val type: String,
     val gender: String,
     val origin: OriginUI,
-    val location: SimpleLocation,
+    val location: SimpleLocationUI,
     val image: String,
     val episode: MutableList<String>,
     val url: String,
@@ -30,7 +28,7 @@ fun Character.toCharacterUI() = CharacterUI(
     type,
     gender,
     origin.toOriginUI(),
-    location,
+    location.toSimpleLocationUI(),
     image,
     episode,
     url,

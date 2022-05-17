@@ -17,8 +17,7 @@
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/ic_launcher_background" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_item_character_content_and_image"
@@ -28,7 +27,7 @@
             app:layout_constraintGuide_begin="150dp" />
 
         <TextView
-            android:id="@+id/tv_name"
+            android:id="@+id/textItemCharacterName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -48,7 +47,7 @@
             android:layout_height="10dp"
             android:layout_marginTop="5dp"
             app:layout_constraintLeft_toRightOf="@id/guideline_item_character_content_and_image"
-            app:layout_constraintTop_toBottomOf="@id/tv_name"/>
+            app:layout_constraintTop_toBottomOf="@id/textItemCharacterName"/>
 
         <TextView
             android:id="@+id/text_item_character_status_and_species"

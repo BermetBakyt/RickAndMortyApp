@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupNavigation()
-        setupToolbar()
     }
 
     private fun setupNavigation() {
@@ -33,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         setupBottomNavigation()
         setupToolbar()
+        updateUIComponents()
     }
 
     private fun setupToolbar() {
@@ -59,6 +59,19 @@ class MainActivity : AppCompatActivity() {
                     R.id.navigation_characters -> {
                         bottomNavigationItemReselectListener.onItemReselect()
                     }
+                }
+            }
+        }
+    }
+
+    private fun updateUIComponents() {
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            when (destination.id) {
+                R.id.characterDetailFragment,
+                R.id.locationDetailFragment,
+                R.id.episodeDetailFragment
+                -> {
+                    //TODO: scroll up bottom navigation and toolbar, because their hided when scroll and open detail not showing
                 }
             }
         }
