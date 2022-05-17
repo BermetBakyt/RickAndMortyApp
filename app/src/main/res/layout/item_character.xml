@@ -12,7 +12,7 @@
 
         <ImageView
             android:id="@+id/image_item_character"
-            android:layout_width="150dp"
+            android:layout_width="140dp"
             android:layout_height="160dp"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/hello_blank_fragment"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:maxLines="1"
             android:ellipsize="end"
             android:textStyle="bold"
@@ -64,6 +64,7 @@
         <TextView
             android:id="@+id/text_item_character_last_known_location"
             android:layout_width="0dp"
+            style="@style/TextItemCharacterSubtitle"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/Last_known_location_COLON"
@@ -83,6 +84,7 @@
         <TextView
             android:id="@+id/text_item_character_first_seen_in"
             android:layout_width="0dp"
+            style="@style/TextItemCharacterSubtitle"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/First_seen_in_COLON"
@@ -105,6 +107,7 @@
         <com.example.rickandmortynew.presentation.ui.customviews.ClickableTextView
             android:id="@+id/text_item_character_first_seen_in_data"
             android:layout_width="0dp"
+            style="@style/TextItemCharacterDescription"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:visibility="gone"
