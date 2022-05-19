@@ -12,9 +12,11 @@ import com.example.rickandmortynew.presentation.adapters.EpisodeAdapter
 import com.example.rickandmortynew.presentation.adapters.paging.LoadStateAdapter
 import com.example.rickandmortynew.presentation.base.BaseFragment
 import com.example.rickandmortynew.presentation.extensions.bindUIToLoadState
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class EpisodesFragment : BaseFragment<EpisodesViewModel, FragmentEpisodesBinding>(
     R.layout.fragment_episodes
 ) {

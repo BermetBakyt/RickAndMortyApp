@@ -49,9 +49,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBottomNavigation() {
         binding.bottomNavigation.apply {
+            //May be deleted?
             itemIconTintList = null
             setupWithNavController(navController)
 
+            //sets Listener to Item reselected. Its deprecated, instead use setOnItemReselected
             setOnNavigationItemReselectedListener {
                 when (it.itemId) {
                     R.id.navigation_locations,
@@ -64,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    // dont understand deepply. Ask to explain
     private fun updateUIComponents() {
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             when (destination.id) {

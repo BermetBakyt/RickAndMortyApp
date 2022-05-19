@@ -1,35 +1,40 @@
 package com.example.data.remote.pagingsources.base
 
+import android.net.Uri
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.data.remote.dto.CharacterPagingResponse
+import com.example.data.remote.dto.RickAndMortyResponse
 import retrofit2.HttpException
-import retrofit2.Response
 import java.io.IOException
 
 private const val BASE_STARTING_PAGE_INDEX = 1
 
 abstract class BasePagingSource<ValueDto : Any, Value : Any>(
-    private val request: suspend (position: Int) -> Response<CharacterPagingResponse<ValueDto>>,
+    private val request: suspend (position: Int) -> RickAndMortyResponse<ValueDto>,
     private val mappedData: (data: List<ValueDto>) -> List<Value>
 ) : PagingSource<Int, Value>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Value> {
         val position = params.key ?: BASE_STARTING_PAGE_INDEX
-
         return try {
             val response = request(position)
-            val data = response.body()!!
+            val next = response.next
+            val nextPageNumber =
+                if (next == null) {
+                    null
+                } else {
+                    Uri.parse(response.next).getQueryParameter("page")!!.toInt()
+                }
 
             LoadResult.Page(
-                data = mappedData(data.data),
+                data = mappedData(response.data),
                 prevKey = null,
-                nextKey = data.next
+                nextKey = nextPageNumber
             )
         } catch (exception: IOException) {
-            LoadResult.Error(exception)
+            return LoadResult.Error(exception)
         } catch (exception: HttpException) {
-            LoadResult.Error(exception)
+            return LoadResult.Error(exception)
         }
     }
 

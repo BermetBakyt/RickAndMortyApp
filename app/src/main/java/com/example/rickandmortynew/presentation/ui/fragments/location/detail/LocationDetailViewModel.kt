@@ -6,9 +6,11 @@ import com.example.rickandmortynew.presentation.models.EpisodeUI
 import com.example.rickandmortynew.presentation.models.LocationUI
 import com.example.rickandmortynew.presentation.models.toEpisodeUI
 import com.example.rickandmortynew.presentation.models.toLocationUI
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
+@HiltViewModel
 class LocationDetailViewModel @Inject constructor(
     private val fetchLocationByIdUseCase: FetchLocationByIdUseCase
 ) :BaseViewModel() {

@@ -9,6 +9,6 @@ import com.example.domain.models.character.Character
 class CharacterPagingSource(
     private val service: CharacterApiService
 ) : BasePagingSource<CharacterDto, Character>(
-    { service.fetchCharactersPaging(it) },
+    { service.fetchCharacters(it) },
     { data -> data.map { it.toCharacter() } }
 )
