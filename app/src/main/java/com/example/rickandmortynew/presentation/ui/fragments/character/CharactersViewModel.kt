@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class CharacterPagingViewModel @Inject constructor(
+class CharactersViewModel @Inject constructor(
     private val characterRepository: CharacterRepositoryImpl,
     private val fetchEpisodeByIdUseCase: FetchEpisodeByIdUseCase
 ) : BaseViewModel() {

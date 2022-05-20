@@ -14,14 +14,14 @@
             android:id="@+id/action_navigation_characters_to_characterDetailFragment"
             app:destination="@id/characterDetailFragment" />
         <action
-            android:id="@+id/action_navigation_characters_to_characterImageDialog"
-            app:destination="@id/characterImageDialog" />
-        <action
             android:id="@+id/action_navigation_characters_to_locationDetailFragment"
             app:destination="@id/locationDetailFragment" />
         <action
             android:id="@+id/action_navigation_characters_to_episodeDetailFragment"
             app:destination="@id/episodeDetailFragment" />
+        <action
+            android:id="@+id/action_navigation_characters_to_characterImageDialog"
+            app:destination="@id/characterImageDialog" />
     </fragment>
 
     <fragment

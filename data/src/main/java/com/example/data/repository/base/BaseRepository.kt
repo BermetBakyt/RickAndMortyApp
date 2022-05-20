@@ -29,7 +29,7 @@ abstract class BaseRepository {
         pagingSource: BasePagingSource<ValueDto, Value>,
         pageSize: Int = 10,
         prefetchDistance: Int = pageSize,
-        enablePlaceholders: Boolean = true,
+        enablePlaceholders: Boolean = false,
         initialLoadSize: Int = pageSize * 3,
         maxSize: Int = Int.MAX_VALUE,
         jumpThreshold: Int = Int.MIN_VALUE
@@ -45,7 +45,7 @@ abstract class BaseRepository {
             ),
             pagingSourceFactory = {
                 pagingSource
-            }
+            },
         ).flow
     }
 }

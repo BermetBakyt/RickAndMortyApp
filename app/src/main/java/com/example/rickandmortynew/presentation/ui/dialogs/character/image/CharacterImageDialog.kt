@@ -7,10 +7,11 @@ import android.os.Bundle
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
+import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.DialogCharacterImageBinding
 import com.example.rickandmortynew.presentation.base.BaseDialog
 
-class CharacterImageDialog : BaseDialog<DialogCharacterImageBinding>() {
+class CharacterImageDialog : BaseDialog<DialogCharacterImageBinding>(R.layout.dialog_character_image) {
 
     override val binding: DialogCharacterImageBinding by viewBinding()
     private val args: CharacterImageDialogArgs by navArgs()

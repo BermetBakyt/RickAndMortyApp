@@ -39,12 +39,6 @@ BaseFragment<LocationsViewModel, FragmentLocationsBinding>(
         }
     }
 
-    override fun setupListeners() {
-        (requireActivity() as MainActivity).setOnBottomNavigationItemReselectListener {
-            binding.recyclerLocations.smoothScrollToPosition(0)
-        }
-    }
-
     private fun onItemClick(name: String, id: Int) {
         findNavController().navigate(
             LocationsFragmentDirections.actionNavigationLocationsToLocationDetailFragment(
@@ -62,5 +56,4 @@ BaseFragment<LocationsViewModel, FragmentLocationsBinding>(
         }
     }
 }
-
 

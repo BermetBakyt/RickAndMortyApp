@@ -11,8 +11,6 @@ interface LocationApiService {
 
     @GET("location")
     suspend fun fetchLocations(
-        @Query("prev") prev: String,
-        @Query("next") next: String,
         @Query("page") page: Int = 0
     ): RickAndMortyResponse<LocationDto>
 

@@ -15,11 +15,11 @@ import com.example.rickandmortynew.presentation.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CharactersFragment : BaseFragment<CharacterPagingViewModel, FragmentCharacterPagingBinding>(
+class CharactersFragment : BaseFragment<CharactersViewModel, FragmentCharacterPagingBinding>(
     R.layout.fragment_character_paging
 ) {
 
-    override val viewModel: CharacterPagingViewModel by activityViewModels()
+    override val viewModel: CharactersViewModel by activityViewModels()
     override val binding by viewBinding(FragmentCharacterPagingBinding::bind)
 
     private val characterAdapter = CharacterPagingAdapter(
@@ -52,12 +52,6 @@ class CharactersFragment : BaseFragment<CharacterPagingViewModel, FragmentCharac
     private fun fetchFooPaging() {
         viewModel.fetchCharactersPaging().collectPaging {
             characterAdapter.submitData(it)
-        }
-    }
-
-    override fun setupListeners() {
-        (requireActivity() as MainActivity).setOnBottomNavigationItemReselectListener {
-            binding.recyclerCharacters.smoothScrollToPosition(0)
         }
     }
 

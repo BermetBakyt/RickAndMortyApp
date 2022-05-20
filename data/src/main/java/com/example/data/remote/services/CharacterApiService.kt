@@ -14,8 +14,6 @@ interface CharacterApiService {
 
     @GET("character")
     suspend fun fetchCharacters(
-        @Query("prev") prev: String,
-        @Query("next") next: String,
-        @Query("page") page: Int = 0
+        @Query("page") page: Int
     ): RickAndMortyResponse<CharacterDto>
 }

@@ -16,8 +16,6 @@ interface EpisodeApiService {
 
     @GET("episode")
     suspend fun fetchEpisodes(
-        @Query("prev") prev: String,
-        @Query("next") next: String,
-        @Query("page") page: Int = 0
+        @Query("page") page: Int
     ): RickAndMortyResponse<EpisodeDto>
 }
