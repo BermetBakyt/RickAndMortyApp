@@ -29,7 +29,7 @@ abstract class BaseRepository {
         pagingSource: BasePagingSource<ValueDto, Value>,
         pageSize: Int = 10,
         prefetchDistance: Int = pageSize,
-        enablePlaceholders: Boolean = false,
+        enablePlaceholders: Boolean = true,
         initialLoadSize: Int = pageSize * 3,
         maxSize: Int = Int.MAX_VALUE,
         jumpThreshold: Int = Int.MIN_VALUE

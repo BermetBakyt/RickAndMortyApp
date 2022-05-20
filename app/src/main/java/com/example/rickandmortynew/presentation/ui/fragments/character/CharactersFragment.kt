@@ -7,20 +7,19 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.rickandmortynew.R
-import com.example.rickandmortynew.databinding.FragmentCharacterPagingBinding
-import com.example.rickandmortynew.presentation.activity.MainActivity
+import com.example.rickandmortynew.databinding.FragmentCharactersBinding
 import com.example.rickandmortynew.presentation.adapters.CharacterPagingAdapter
 import com.example.rickandmortynew.presentation.adapters.paging.LoadStateAdapter
 import com.example.rickandmortynew.presentation.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CharactersFragment : BaseFragment<CharactersViewModel, FragmentCharacterPagingBinding>(
-    R.layout.fragment_character_paging
+class CharactersFragment : BaseFragment<CharactersViewModel, FragmentCharactersBinding>(
+    R.layout.fragment_characters
 ) {
 
     override val viewModel: CharactersViewModel by activityViewModels()
-    override val binding by viewBinding(FragmentCharacterPagingBinding::bind)
+    override val binding by viewBinding(FragmentCharactersBinding::bind)
 
     private val characterAdapter = CharacterPagingAdapter(
         this::onItemClick,

@@ -9,7 +9,7 @@
         android:id="@+id/navigation_characters"
         android:name="com.example.rickandmortynew.presentation.ui.fragments.character.CharactersFragment"
         android:label="@string/fragment_label_characters"
-        tools:layout="@layout/fragment_character_paging">
+        tools:layout="@layout/fragment_characters">
         <action
             android:id="@+id/action_navigation_characters_to_characterDetailFragment"
             app:destination="@id/characterDetailFragment" />

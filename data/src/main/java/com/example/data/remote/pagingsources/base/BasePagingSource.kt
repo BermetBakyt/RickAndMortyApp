@@ -18,12 +18,12 @@ abstract class BasePagingSource<ValueDto : Any, Value : Any>(
         val position = params.key ?: BASE_STARTING_PAGE_INDEX
         return try {
             val response = request(position)
-            val next = response.next
+            val next = response.info.next
             val nextPageNumber =
                 if (next == null) {
                     null
                 } else {
-                    Uri.parse(response.next).getQueryParameter("page")!!.toInt()
+                    Uri.parse(response.info.next).getQueryParameter("page")!!.toInt()
                 }
 
             LoadResult.Page(
