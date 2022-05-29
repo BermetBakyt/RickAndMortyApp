@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.rickandmortynew.databinding.ItemRecyclerBinding
 import com.example.rickandmortynew.presentation.base.BaseDiffUtilCallback
 import com.example.rickandmortynew.presentation.ui.models.CharacterUI
@@ -22,8 +21,8 @@ class CharactersAdapter(
                 tvName.text = item.name
                 tvSpecies.text = item.species
             }
-            Glide.with(itemView.context).load(item.image).into(binding.ivProfilePhoto)
-
+            //coil.load(itemView.context).load(item.image).into(binding.ivProfilePhoto)
+,
             itemView.setOnClickListener {
                 action.invoke(item.id)
             }
