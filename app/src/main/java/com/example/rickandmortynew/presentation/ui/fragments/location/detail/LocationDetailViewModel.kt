@@ -2,14 +2,11 @@ package com.example.rickandmortynew.presentation.ui.fragments.location.detail
 
 import com.example.domain.use_cases.FetchLocationByIdUseCase
 import com.example.rickandmortynew.presentation.base.BaseViewModel
-import com.example.rickandmortynew.presentation.models.EpisodeUI
 import com.example.rickandmortynew.presentation.models.LocationUI
-import com.example.rickandmortynew.presentation.models.toEpisodeUI
 import com.example.rickandmortynew.presentation.models.toLocationUI
 import kotlinx.coroutines.flow.asStateFlow
-import javax.inject.Inject
 
-class LocationDetailViewModel @Inject constructor(
+class LocationDetailViewModel (
     private val fetchLocationByIdUseCase: FetchLocationByIdUseCase
 ) :BaseViewModel() {
 

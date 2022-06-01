@@ -15,6 +15,7 @@ import com.example.rickandmortynew.presentation.extensions.bindUIToLoadState
 import com.example.rickandmortynew.presentation.ui.fragments.location.detail.LocationsFragmentDirections
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LocationsFragment :
 BaseFragment<LocationsViewModel, FragmentLocationsBinding>(
@@ -22,7 +23,7 @@ BaseFragment<LocationsViewModel, FragmentLocationsBinding>(
 ) {
 
     override val binding by viewBinding(FragmentLocationsBinding::bind)
-    override val viewModel: LocationsViewModel by viewModels()
+    override val viewModel by viewModel<LocationsViewModel>()
 
     private val locationAdapter = LocationAdapter(this::onItemClick)
 

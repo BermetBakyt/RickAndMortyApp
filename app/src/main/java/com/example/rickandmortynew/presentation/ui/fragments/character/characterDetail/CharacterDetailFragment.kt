@@ -1,25 +1,23 @@
 package com.example.rickandmortynew.presentation.ui.fragments.character.characterDetail
 
-import android.util.Log
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
+import com.alis.rickandmorty.presentation.ui.fragments.characters.detail.CharacterDetailFragmentArgs
 import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.FragmentCharacterDetailBinding
 import com.example.rickandmortynew.presentation.base.BaseFragment
 import com.example.rickandmortynew.presentation.extensions.showToastShort
 import com.example.rickandmortynew.presentation.ui.fragments.detail.CharacterDetailViewModel
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
 class CharacterDetailFragment(
 ) : BaseFragment<CharacterDetailViewModel, FragmentCharacterDetailBinding>(
     R.layout.fragment_character_detail
 ) {
 
     override val binding by viewBinding(FragmentCharacterDetailBinding::bind)
-    override val viewModel: CharacterDetailViewModel by viewModels()
+    override val viewModel by viewModel<CharacterDetailViewModel>()
     private val args: CharacterDetailFragmentArgs by navArgs()
 
     override fun setupRequests() {

@@ -1,6 +1,5 @@
 package com.example.rickandmortynew.presentation.ui.fragments.location.detail
 
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.alis.rickandmorty.presentation.ui.fragments.locations.detail.LocationDetailFragmentArgs
@@ -8,14 +7,13 @@ import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.FragmentLocationDetailBinding
 import com.example.rickandmortynew.presentation.base.BaseFragment
 import com.example.rickandmortynew.presentation.extensions.showToastShort
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
 class LocationDetailFragment() : BaseFragment<LocationDetailViewModel, FragmentLocationDetailBinding>(
     R.layout.fragment_location_detail
 ) {
 
-    override val viewModel: LocationDetailViewModel by activityViewModels()
+    override val viewModel by viewModel<LocationDetailViewModel>()
     override val binding by viewBinding(FragmentLocationDetailBinding::bind)
     private val args: LocationDetailFragmentArgs by navArgs()
 

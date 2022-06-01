@@ -4,12 +4,9 @@ import com.example.domain.use_cases.FetchEpisodeByIdUseCase
 import com.example.rickandmortynew.presentation.base.BaseViewModel
 import com.example.rickandmortynew.presentation.models.EpisodeUI
 import com.example.rickandmortynew.presentation.models.toEpisodeUI
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.asStateFlow
-import javax.inject.Inject
 
-@HiltViewModel
-class EpisodeDetailViewModel @Inject constructor(
+class EpisodeDetailViewModel (
     private val fetchEpisodeByIdUseCase: FetchEpisodeByIdUseCase
 ) : BaseViewModel() {
 

@@ -1,7 +1,6 @@
 package com.example.rickandmortynew.presentation.ui.fragments.character
 
 import android.net.Uri
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,18 +14,17 @@ import com.example.rickandmortynew.presentation.adapters.CharacterPagingAdapter
 import com.example.rickandmortynew.presentation.base.BaseFragment
 import com.example.rickandmortynew.presentation.extensions.bindUIToLoadState
 import com.example.rickandmortynew.presentation.extensions.showToastShort
-import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
 class CharactersFragment :
     BaseFragment<CharacterPagingViewModel, FragmentCharacterPagingBinding>(
         R.layout.fragment_character_paging
     ) {
 
     override val binding by viewBinding(FragmentCharacterPagingBinding::bind)
-    override val viewModel: CharacterPagingViewModel by viewModels()
+    override val viewModel by viewModel<CharacterPagingViewModel>()
 
     private val characterPagingAdapter = CharacterPagingAdapter(
         this::onItemClick,

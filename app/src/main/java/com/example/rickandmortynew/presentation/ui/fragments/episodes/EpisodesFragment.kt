@@ -18,13 +18,14 @@ import com.example.rickandmortynew.presentation.extensions.bindUIToLoadState
 import com.example.rickandmortynew.presentation.ui.fragments.location.LocationsViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EpisodesFragment : BaseFragment<EpisodesViewModel, FragmentEpisodesBinding>(
     R.layout.fragment_episodes
 ) {
 
     override val binding by viewBinding(FragmentEpisodesBinding::bind)
-    override val viewModel: EpisodesViewModel by viewModels()
+    override val viewModel by viewModel<EpisodesViewModel>()
 
     private val episodeAdapter = EpisodeAdapter(this::onItemClick)
 
