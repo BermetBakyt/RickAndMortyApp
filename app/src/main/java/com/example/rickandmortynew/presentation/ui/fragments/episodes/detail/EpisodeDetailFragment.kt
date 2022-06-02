@@ -1,9 +1,7 @@
 package com.example.rickandmortynew.presentation.ui.fragments.episodes.detail
 
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.alis.rickandmorty.presentation.ui.fragments.episodes.detail.EpisodeDetailFragmentArgs
 import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.FragmentEpisodeDetailBinding
 import com.example.rickandmortynew.presentation.base.BaseFragment

@@ -16,8 +16,6 @@ import com.example.rickandmortynew.presentation.models.CharacterUI
 class CharacterPagingAdapter(
     val onItemClick: (name: String, id: Int) -> Unit,
     val onItemLongClick: (image: String) -> Unit,
-    val onItemLastKnownLocationClick: (location: SimpleLocation) -> Unit,
-    val onItemFirstSeenOnClick: (name: String, url: String) -> Unit
 ) : PagingDataAdapter<CharacterUI, CharacterPagingAdapter.CharacterViewHolder>(
     BaseDiffUtilCallback()
 ) {
@@ -34,53 +32,39 @@ class CharacterPagingAdapter(
         getItem(position)?.let { holder.onBind(it) }
     }
 
-    fun setFirstSeenIn(position: Int, firstSeenIn: String) {
-        getItem(position)?.firstSeenIn = firstSeenIn
-        notifyItemChanged(position)
-    }
-
     inner class CharacterViewHolder(
-        private val binding: ItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {
+        private val binding: ItemCharacterBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         init {
             with(binding) {
 
-                root.setOnClickListener{
+                root.setOnClickListener {
                     with(getItem(absoluteAdapterPosition)!!) {
                         onItemClick(name, id)
                     }
                 }
 
-                root.setOnClickListener{
+                root.setOnLongClickListener {
                     onItemLongClick(getItem(absoluteAdapterPosition)!!.image)
                     true
-                }
-
-                textItemCharacterLastKnownLocationData.setOnClickListener {
-                    onItemLastKnownLocationClick(getItem(absoluteAdapterPosition)!!.location)
-                }
-
-                textItemCharacterFirstSeenInData.setOnClickListener {
-                    with(getItem(absoluteAdapterPosition)!!) {
-                        onItemFirstSeenOnClick(firstSeenIn, episode.first())
-                    }
                 }
             }
         }
 
-        fun onBind(characterUI: CharacterUI) = with(binding) {
-            imageItemCharacter.load(characterUI.image)
-            tvName.text = characterUI.name
-            setupCharacterStatus(characterUI.status)
+        fun onBind(character: CharacterUI) = with(binding) {
+            imageItemCharacter.load(character.image)
+            tvName.text = character.name
+            setupCharacterStatus(character.status)
             textItemCharacterStatusAndSpecies.text = textItemCharacterStatusAndSpecies
                 .context
                 .resources
                 .getString(
-                    R.string.hyphen, characterUI.status, characterUI.species
+                    R.string.hyphen, character.status, character.species
                 )
             with(textItemCharacterLastKnownLocationData) {
-                text = characterUI.location.name
-                isEnabled = characterUI.location.url.isNotEmpty()
+                text = character.location.name
+                isEnabled = character.location.url.isNotEmpty()
             }
         }
 

@@ -2,7 +2,6 @@ package com.example.rickandmortynew.presentation.ui.fragments.location.detail
 
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.alis.rickandmorty.presentation.ui.fragments.locations.detail.LocationDetailFragmentArgs
 import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.FragmentLocationDetailBinding
 import com.example.rickandmortynew.presentation.base.BaseFragment

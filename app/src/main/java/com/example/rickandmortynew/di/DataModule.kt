@@ -2,40 +2,25 @@ package com.example.rickandmortynew.di
 
 import com.example.data.remote.RetrofitClient
 import com.example.data.remote.services.CharacterApiService
+import com.example.data.remote.services.EpisodeApiService
+import com.example.data.remote.services.LocationApiService
 import com.example.data.repository.CharacterRepositoryImpl
 import com.example.data.repository.EpisodeRepositoryImpl
 import com.example.data.repository.LocationRepositoryImpl
 import com.example.domain.repository.CharacterRepository
 import com.example.domain.repository.EpisodeRepository
 import com.example.domain.repository.LocationRepository
+import org.koin.dsl.bind
 import org.koin.dsl.module
 
     val repositoriesModule = module {
 
-        //Defines a singleton of Repository
-        single<CharacterRepository> {
-            get<CharacterRepositoryImpl>()
-        }
+        single { CharacterRepositoryImpl(service = get()) } bind CharacterRepository::class
 
-        single<EpisodeRepository> {
-            get<EpisodeRepositoryImpl>()
-        }
+        single { LocationRepositoryImpl(service = get()) } bind LocationRepository::class
 
-        single<LocationRepository> {
-            get<LocationRepositoryImpl>()
-        }
+        single { EpisodeRepositoryImpl(service = get()) } bind EpisodeRepository::class
 
-        single<CharacterRepositoryImpl> {
-            CharacterRepositoryImpl(service = get())
-        }
-
-        single<LocationRepositoryImpl> {
-            LocationRepositoryImpl(service = get())
-        }
-
-        single<EpisodeRepositoryImpl> {
-            EpisodeRepositoryImpl(service = get())
-        }
     }
 
 val networkModule = module {

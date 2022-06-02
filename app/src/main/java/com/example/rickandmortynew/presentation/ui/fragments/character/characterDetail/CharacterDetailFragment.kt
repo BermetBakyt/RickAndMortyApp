@@ -3,7 +3,6 @@ package com.example.rickandmortynew.presentation.ui.fragments.character.characte
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
-import com.alis.rickandmorty.presentation.ui.fragments.characters.detail.CharacterDetailFragmentArgs
 import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.FragmentCharacterDetailBinding
 import com.example.rickandmortynew.presentation.base.BaseFragment
