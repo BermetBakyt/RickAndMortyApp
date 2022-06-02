@@ -41,12 +41,6 @@ class EpisodesFragment : BaseFragment<EpisodesViewModel, FragmentEpisodesBinding
         }
     }
 
-    override fun setupListeners() {
-        (requireActivity() as MainActivity).setOnBottomNavigationItemReselectListener{
-            binding.recyclerEpisodes.smoothScrollToPosition(0)
-        }
-    }
-
     private fun onItemClick(name: String, id: Int) {
         findNavController().navigate(
             EpisodesFragmentDirections.actionNavigationEpisodesToEpisodeDetailFragment(

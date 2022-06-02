@@ -8,13 +8,13 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.example.rickandmortynew.R
 import com.example.rickandmortynew.databinding.ActivityMainBinding
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var bottomNavigationItemReselectListener: OnBottomNavigationItemReselect
+    private lateinit var bottomNavigationItemReselectListener: NavigationView.OnNavigationItemSelectedListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupNavigation() {
         val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            supportFragmentManager.findFragmentById(androidx.navigation.fragment.R.id.nav_host_fragment_container) as NavHostFragment
         navController = navHostFragment.navController
 
         setupBottomNavigation()
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             itemIconTintList = null
             setupWithNavController(navController)
 
-            setOnNavigationItemReselectedListener {
+           setOnBottomNavigationItemReselectListener() {
                 when (it.itemId) {
                     R.id.navigation_locations,
                     R.id.navigation_episodes,
@@ -50,14 +50,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
     fun interface OnBottomNavigationItemReselect {
         fun onItemReselect()
     }
 
-    fun setOnBottomNavigationItemReselectListener(bottomNavigationItemReselectListener: OnBottomNavigationItemReselect) {
+    fun setOnBottomNavigationItemReselectListener(bottomNavigationItemReselectListener: NavigationView.OnNavigationItemSelectedListener) {
         this.bottomNavigationItemReselectListener = bottomNavigationItemReselectListener
     }
 }
+

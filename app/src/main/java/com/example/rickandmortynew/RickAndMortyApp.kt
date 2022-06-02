@@ -13,7 +13,7 @@ class RickAndMortyApp : Application() {
         super.onCreate()
 
         startKoin{
-            androidLogger(Level.DEBUG)
+            androidLogger(if (BuildConfig.DEBUG) Level.ERROR else Level.NONE)
             androidContext(this@RickAndMortyApp)
             modules(listOf(presentationModule, domainModule, repositoriesModule, networkModule))
         }

@@ -46,12 +46,6 @@ class CharactersFragment :
         }
     }
 
-    override fun setupListeners() {
-        (requireActivity() as MainActivity).setOnBottomNavigationItemReselectListener {
-            binding.recyclerCharacters.smoothScrollToPosition(0)
-        }
-    }
-
     private fun onItemClick(name: String, id: Int) {
         findNavController().navigate(
             CharactersFragmentDirections.actionNavigationCharactersToCharacterDetailFragment(
