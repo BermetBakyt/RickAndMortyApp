@@ -69,7 +69,7 @@
     <fragment
         android:id="@+id/locationDetailFragment"
         android:name="com.example.rickandmortynew.presentation.ui.fragments.location.detail.LocationDetailFragment"
-        android:label="{label}"
+        android:label="@string/fragment_label_detail_location"
         tools:layout="@layout/fragment_location_detail">
         <argument
             android:name="label"
@@ -82,7 +82,7 @@
     <fragment
         android:id="@+id/episodeDetailFragment"
         android:name="com.example.rickandmortynew.presentation.ui.fragments.episodes.detail.EpisodeDetailFragment"
-        android:label="{label}"
+        android:label="@string/fragment_label_detail_episode"
         tools:layout="@layout/fragment_episode_detail">
         <argument
             android:name="label"
