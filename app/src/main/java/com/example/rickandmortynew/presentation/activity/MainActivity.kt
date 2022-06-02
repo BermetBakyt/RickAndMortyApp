@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
-    private lateinit var bottomNavigationItemReselectListener: NavigationView.OnNavigationItemSelectedListener
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupNavigation() {
         val navHostFragment =
-            supportFragmentManager.findFragmentById(androidx.navigation.fragment.R.id.nav_host_fragment_container) as NavHostFragment
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
 
         setupBottomNavigation()
@@ -33,32 +33,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBottomNavigation() {
         binding.bottomNavigation.apply {
-            itemIconTintList = null
             setupWithNavController(navController)
-
-           setOnBottomNavigationItemReselectListener() {
-                when (it.itemId) {
-                    R.id.navigation_locations,
-                    R.id.navigation_episodes,
-                    R.id.navigation_characters -> {
-                        bottomNavigationItemReselectListener.onItemReselect()
-                    }
-                }
-            }
         }
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp() || super.onSupportNavigateUp()
-    }
-
-    fun interface OnBottomNavigationItemReselect {
-        fun onItemReselect()
-    }
-
-    fun setOnBottomNavigationItemReselectListener(bottomNavigationItemReselectListener: NavigationView.OnNavigationItemSelectedListener) {
-        this.bottomNavigationItemReselectListener = bottomNavigationItemReselectListener
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
 
