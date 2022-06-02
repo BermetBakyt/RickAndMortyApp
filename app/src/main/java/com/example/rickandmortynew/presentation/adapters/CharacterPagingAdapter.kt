@@ -16,7 +16,6 @@ import com.example.rickandmortynew.presentation.models.CharacterUI
 class CharacterPagingAdapter(
     val onItemClick: (name: String, id: Int) -> Unit,
     val onItemLongClick: (image: String) -> Unit,
-    val fetchFirstSeenIn: (position: Int, episodeUrl: String) -> Unit,
     val onItemLastKnownLocationClick: (location: SimpleLocation) -> Unit,
     val onItemFirstSeenOnClick: (name: String, url: String) -> Unit
 ) : PagingDataAdapter<CharacterUI, CharacterPagingAdapter.CharacterViewHolder>(
@@ -83,7 +82,6 @@ class CharacterPagingAdapter(
                 text = characterUI.location.name
                 isEnabled = characterUI.location.url.isNotEmpty()
             }
-            setupFirstSeenIn(characterUI.firstSeenIn, characterUI.episode.first())
         }
 
         private fun setupCharacterStatus(status: String) = with(binding) {
@@ -97,16 +95,6 @@ class CharacterPagingAdapter(
                 CharacterStatus.UNKNOWN.status -> {
                     imageItemCharacterStatus.setImageResource(CharacterStatus.UNKNOWN.image)
                 }
-            }
-        }
-
-        private fun setupFirstSeenIn(firstSeenIn: String, episode: String) = with(binding) {
-            progressBarCharacterFirstSeenIn.isVisible = firstSeenIn.isEmpty()
-            textItemCharacterFirstSeenInData.isVisible = firstSeenIn.isNotEmpty()
-            if (firstSeenIn.isEmpty()) {
-                fetchFirstSeenIn(absoluteAdapterPosition,episode)
-            } else {
-                textItemCharacterFirstSeenInData.text = firstSeenIn
             }
         }
     }

@@ -6,12 +6,10 @@ import com.example.rickandmortynew.presentation.base.BaseViewModel
 import com.example.rickandmortynew.presentation.models.toCharacterUI
 
 class CharacterPagingViewModel (
-    private val characterRepository: CharacterRepositoryImpl,
-    private val fetchEpisodeByIdUseCase: FetchEpisodeByIdUseCase
+    private val characterRepository: CharacterRepositoryImpl
 ) : BaseViewModel() {
 
     fun fetchCharactersPaging() =
         characterRepository.fetchCharactersPaging().collectPagingRequest { it.toCharacterUI() }
 
-    fun fetchEpisode(id: Int) = fetchEpisodeByIdUseCase(id)
 }

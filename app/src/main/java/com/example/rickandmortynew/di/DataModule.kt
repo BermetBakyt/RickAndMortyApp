@@ -14,15 +14,27 @@ import org.koin.dsl.module
 
         //Defines a singleton of Repository
         single<CharacterRepository> {
-            CharacterRepositoryImpl(service = get())
+            get<CharacterRepositoryImpl>()
         }
 
         single<EpisodeRepository> {
-            EpisodeRepositoryImpl(service = get())
+            get<EpisodeRepositoryImpl>()
         }
 
         single<LocationRepository> {
+            get<LocationRepositoryImpl>()
+        }
+
+        single<CharacterRepositoryImpl> {
+            CharacterRepositoryImpl(service = get())
+        }
+
+        single<LocationRepositoryImpl> {
             LocationRepositoryImpl(service = get())
+        }
+
+        single<EpisodeRepositoryImpl> {
+            EpisodeRepositoryImpl(service = get())
         }
     }
 

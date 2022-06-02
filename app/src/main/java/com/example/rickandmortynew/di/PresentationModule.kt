@@ -19,8 +19,7 @@ val presentationModule = module {
 
     viewModel<CharacterPagingViewModel> {
         CharacterPagingViewModel(
-            characterRepository = get(),
-            fetchEpisodeByIdUseCase = get()
+            characterRepository = get()
         )
     }
 

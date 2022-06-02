@@ -1,6 +1,6 @@
 package com.example.data.remote.services
 
-import com.example.data.remote.dto.CharacterPagingResponse
+import com.example.data.remote.dto.RickAndMortyResponse
 import com.example.data.remote.dto.character.CharacterDto
 import retrofit2.Response
 import retrofit2.http.GET
@@ -12,7 +12,7 @@ interface CharacterApiService {
     suspend fun fetchCharacter(@Path("id") id: Int): CharacterDto
 
     @GET("character")
-    suspend fun fetchCharactersPaging(
+    suspend fun fetchCharacters(
         @Query("page") page: Int
-    ): Response<CharacterPagingResponse<CharacterDto>>
+    ): RickAndMortyResponse<CharacterDto>
 }

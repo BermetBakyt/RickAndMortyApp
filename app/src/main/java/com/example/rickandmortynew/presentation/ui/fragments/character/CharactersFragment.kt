@@ -29,7 +29,6 @@ class CharactersFragment :
     private val characterPagingAdapter = CharacterPagingAdapter(
         this::onItemClick,
         this::onItemLongClick,
-        this::fetchFirstSeenIn,
         this::onItemLastKnownLocationClick,
         this::onItemFirstSeenOnClick,
     )
@@ -61,23 +60,6 @@ class CharactersFragment :
                 image = image
             )
         )
-    }
-
-    private fun fetchFirstSeenIn(position: Int, episodeUrl: String) {
-        lifecycleScope.launch {
-            viewModel.fetchEpisode(episodeUrl.getIdFromUrl()).collect {
-                when (it) {
-                    is Either.Left-> {
-                        showToastShort(it.toString())
-                    }
-                    is Either.Right -> {
-                        it.value.let { episode ->
-                            characterPagingAdapter.setFirstSeenIn(position, episode.name)
-                        }
-                    }
-                }
-            }
-        }
     }
 
     private fun onItemLastKnownLocationClick(location: SimpleLocation) {
